@@ -1,0 +1,32 @@
+Program (HTML): 
+<!DOCTYPE html> 
+<html> 
+<head><title>Student Registration</title></head> 
+<body> 
+<form action="StudentServlet" method="post"> 
+    Name: <input type="text" name="name"><br> 
+    Roll No: <input type="text" name="roll"><br> 
+    Department: <input type="text" name="dept"><br> 
+    <input type="submit" value="Register"> 
+</form> 
+</body> 
+</html> 
+Program (Servlet): 
+32  
+import java.io.*; 
+import javax.servlet.*; 
+import javax.servlet.http.*; 
+public class StudentServlet extends HttpServlet { 
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws 
+ServletException, IOException { 
+        response.setContentType("text/html"); 
+        PrintWriter out = response.getWriter(); 
+                String name = request.getParameter("name"); 
+        String roll = request.getParameter("roll"); 
+        String dept = request.getParameter("dept"); 
+        out.println("<h2>Student Details</h2>"); 
+        out.println("Name: " + name + "<br>"); 
+        out.println("Roll No: " + roll + "<br>"); 
+        out.println("Department: " + dept); 
+    } 
+} 
